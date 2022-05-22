@@ -1,8 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container, Navbar} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import UrlAliasList from "./components/UrlAliasList";
 import UrlCreationForm from "./components/UrlCreationForm";
+import Header from "./components/Header";
 
 function App() {
 
@@ -14,17 +15,7 @@ function App() {
 
     return (
         <>
-            <Navbar bg="dark" variant="dark">
-                <Container>
-                    <Navbar.Brand>Short url</Navbar.Brand>
-                    <Navbar.Toggle/>
-                    <Navbar.Collapse className="justify-content-end">
-                        <Navbar.Text>
-                            Signed in as: <a href="!#">Vsevolod</a>
-                        </Navbar.Text>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+            <Header/>
             <Container className="w-75 p-3">
                 <UrlCreationForm/>
                 <UrlAliasList aliases={array}/>
