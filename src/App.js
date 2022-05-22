@@ -1,7 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button, Container, FormControl, InputGroup, Navbar} from "react-bootstrap";
+import {Container, Navbar} from "react-bootstrap";
 import UrlAliasList from "./components/UrlAliasList";
+import UrlCreationForm from "./components/UrlCreationForm";
 
 function App() {
 
@@ -25,15 +26,7 @@ function App() {
                 </Container>
             </Navbar>
             <Container className="w-75 p-3">
-                <InputGroup className="mb-4">
-                    <FormControl
-                        placeholder="Original url"
-                    />
-                    <Button variant="outline-secondary" id="button-addon2">
-                        Create
-                    </Button>
-                </InputGroup>
-
+                <UrlCreationForm/>
                 <UrlAliasList aliases={array}/>
             </Container>
         </>
