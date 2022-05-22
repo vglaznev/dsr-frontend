@@ -1,8 +1,16 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button, Container, FormControl, InputGroup, ListGroup, Navbar} from "react-bootstrap";
+import {Button, Container, FormControl, InputGroup, Navbar} from "react-bootstrap";
+import UrlAliasList from "./components/UrlAliasList";
 
 function App() {
+
+    const array = [
+        {shortUrl: "short-url-1", originalUrl: "original-url-1"},
+        {shortUrl: "short-url-2", originalUrl: "original-url-2"},
+        {shortUrl: "short-url-3", originalUrl: "original-url-3"},
+    ]
+
     return (
         <>
             <Navbar bg="dark" variant="dark">
@@ -11,7 +19,7 @@ function App() {
                     <Navbar.Toggle/>
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            Signed in as: <a>Vsevolod</a>
+                            Signed in as: <a href="!#">Vsevolod</a>
                         </Navbar.Text>
                     </Navbar.Collapse>
                 </Container>
@@ -26,33 +34,7 @@ function App() {
                     </Button>
                 </InputGroup>
 
-                <ListGroup>
-                    <ListGroup.Item className="d-flex justify-content-around">
-                        <div className="float-left">Original url</div>
-                        <div className="vr"></div>
-                        <div className="float-right">Short url</div>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="d-flex justify-content-around">
-                        <div className="float-left">Original url</div>
-                        <div className="vr"></div>
-                        <div className="float-right">Short url</div>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="d-flex justify-content-around">
-                        <div className="float-left">Original url</div>
-                        <div className="vr"></div>
-                        <div className="float-right">Short url</div>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="d-flex justify-content-around">
-                        <div className="float-left">Original url</div>
-                        <div className="vr"></div>
-                        <div className="float-right">Short url</div>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="d-flex justify-content-around">
-                        <div className="float-left">Original url</div>
-                        <div className="vr"></div>
-                        <div className="float-right">Short url</div>
-                    </ListGroup.Item>
-                </ListGroup>
+                <UrlAliasList aliases={array}/>
             </Container>
         </>
     );
