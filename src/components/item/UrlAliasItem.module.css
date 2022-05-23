@@ -1,0 +1,12 @@
+.item {
+    display: flex;
+    width: 100%;
+}
+
+.output {
+    width: 50%;
+    text-align: center;
+    display: inline;
+    overflow-x: hidden;
+    margin-inline: 10px;
+}

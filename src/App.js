@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container} from "react-bootstrap";
 import UrlAliasList from "./components/UrlAliasList";
@@ -7,18 +7,28 @@ import Header from "./components/Header";
 
 function App() {
 
-    const array = [
-        {shortUrl: "short-url-1", originalUrl: "original-url-1"},
-        {shortUrl: "short-url-2", originalUrl: "original-url-2"},
-        {shortUrl: "short-url-3", originalUrl: "original-url-3"},
-    ]
+    const [urlAliases, setUrlAliases] = useState([]);
+    const maxAmountOfLinksInStack = 5;
+
+
+    const addAlias = (urlAlias) => {
+        urlAliases.unshift(urlAlias);
+        if (urlAliases.length === maxAmountOfLinksInStack + 1) {
+            urlAliases.pop();
+        }
+        setUrlAliases([...urlAliases]);
+    }
+
+    const removeAlias = (alias) => {
+        setUrlAliases(urlAliases.filter(a => a.id !== alias.id));
+    }
 
     return (
         <>
             <Header/>
             <Container className="w-75 p-3">
-                <UrlCreationForm/>
-                <UrlAliasList aliases={array}/>
+                <UrlCreationForm create={addAlias}/>
+                <UrlAliasList aliases={urlAliases} remove={removeAlias}/>
             </Container>
         </>
     );
