@@ -8,7 +8,6 @@ const RegistrationForm = ({visible, setVisible}) => {
     const closeForm = () => setVisible(false);
 
     const registerUser = () => {
-        console.log("blyaaa")
         register(...info);
         closeForm();
     }
