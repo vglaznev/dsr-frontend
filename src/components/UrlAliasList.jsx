@@ -6,7 +6,7 @@ const UrlAliasList = ({aliases, remove}) => {
     return (
         <ListGroup>
             {aliases.map(alias =>
-                <UrlAliasItem alias={alias} remove={remove}/>
+                <UrlAliasItem alias={alias} remove={remove} key={alias.id}/>
             )}
         </ListGroup>
     );

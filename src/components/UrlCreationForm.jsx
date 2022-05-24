@@ -1,18 +1,23 @@
 import React, {useState} from 'react';
 import {Button, FormControl, InputGroup} from "react-bootstrap";
+import {useDispatch, useSelector} from "react-redux";
 
 const UrlCreationForm = ({create}) => {
     const [originalUrl, setOriginalUrl] = useState("");
-
+    const isAuth = useSelector(state => state)
 
     const createShortUrl = (e) => {
-        const urlAlias = {
-            id: Date.now(),
-            shortUrl: originalUrl,
-            originalUrl
+        if (isAuth) {
+            const urlAlias = {
+                id: Date.now(),
+                shortUrl: originalUrl,
+                originalUrl
+            }
+            create(urlAlias);
+            setOriginalUrl("");
+        } else {
+            alert("Please login. Only users can create links");
         }
-        create(urlAlias);
-        setOriginalUrl("");
     }
 
     return (
